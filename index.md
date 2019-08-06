@@ -4,9 +4,7 @@ root: .  # Is the only page that doesn't follow the pattern /:path/index.html
 permalink: index.html  # Is the only page that doesn't follow the pattern /:path/index.html
 ---
 
-<figure>
-  <img src="../fig/handson.jpg" alt="HandsOn" width="700" height="400">
-</figure>
+![](../fig/handson.png)
 
 Welcome to the hands-on tutorial of the [DM@LHC conference at 2019](https://indico.cern.ch/event/783977/).
 This tutorial should be viewed not as a comprehensive overview, as some of the talks later in the week,
