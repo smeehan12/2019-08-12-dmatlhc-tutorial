@@ -1,47 +1,44 @@
 ---
-title: "MadGraph+Pythia"
+title: "DM Searches : Mono-X"
 teaching: 20
-exercises: 3
+exercises: 0
 questions:
-- "How does a Monte Carlo simulation work?"
-- "What is the difference between MadGraph and Pythia?"
-- "What is the final output product of this simulation?"
+- "How do you search for something you can't detect?"
+- "What are 'physics objects' at the LHC?"
+- "What are the basic aspects of a search at the LHC?"
 objectives:
-- "Configure a MadGraph BSM physics process simulation."
-- "Calculate the cross section for a physics process."
-- "Produce a HEPMC file for the monojet DM signature."
+- "Review the basic conceptual aspects of searches at the LHC."
+- "Appreciate the basic components of a 'physics signature'."
+- "Understand the basics of inferential statistics and the CLs test statistic."
 keypoints:
-- "MadGraph simulates the matrix element physics process."
-- "Pythia simulated the parton shower physics process."
-- "MadGraph+Pythia allows you to produce a HEPMC file which contains information about the ensemble of stable particles that enter the detector."
+- "Missing transverse energy is **not** a thing - it is missing transverse momentum because it has a magnitude **and** a direction."
+- "Detector smearing results from the physical limitations of our detectors precision."
+- "Inferential statistics can be used to transform the observations made about an ensemble of events into statements about a physics model through the use of likelihoods."
 ---
 
-## Starting Up
-Booting up the image and describing the inner workings and how it links to your local machine
+## Observing Dark Matter
 
-## Starting MadGraph
-Guide them to start MadGraph
+Show blobs without and then with a recoil
 
-callout for the self-guided tutorial
+The Canonical Signature : Missing "Energy" and why its actually momentum
 
-## Running DMsimp in MadGraph
-step by step guide
+Briefly cover the different X types
 
-## The Output
+## The Ingredients of a Search
 
-### MadGraph : LHE Files
-Guide them through inspecting the LHE file that comes out of madgraph
+### Identifying the Signature
 
-### MadGraph+Pythia : HEPMC Files
-Describe what comes out of the HEPMC file
+### From Particles to Physics Objects
 
-How can they inspect HEPMC files?
+### Triggering
 
-## Changing Model Parameters
-Describe the param card and have them change the mediator mass
+### Signal Region Selection
 
-## Changing Running Parameters
-Describe the run card and have them change the input particle type
+### Backgrounds (Damn it!)
+
+### Uncertainties
+
+## The Magic of Likelihoods
 
 
 {% include links.md %}

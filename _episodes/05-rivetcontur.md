@@ -3,9 +3,9 @@ title: "Rivet+Contur"
 teaching: 20
 exercises: 0
 questions:
-- "What is Rivet?"
+- "What is Rivet? What is Contur?"
 - "What is an unfolded distribution?"
-- "How can we infer the existence of a signal from the data?"
+- "What do existing measurements say about DM signatures?"
 objectives:
 - "Execute an existing Rivet analysis pertinent to our monojet signature."
 - "Transform the analyzed spectra into exclusion limits on the DMsimp model using Contur."
