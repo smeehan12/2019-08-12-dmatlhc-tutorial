@@ -5,7 +5,7 @@ permalink: index.html  # Is the only page that doesn't follow the pattern /:path
 ---
 
 <figure>
-  <img src="../fig/handson.jpg" alt="The Pulpit Rock" width="700" height="400">
+  <img src="../fig/handson.jpg" alt="HandsOn" width="700" height="400">
 </figure>
 
 Welcome to the hands-on tutorial of the [DM@LHC conference at 2019](https://indico.cern.ch/event/783977/).
