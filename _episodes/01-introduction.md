@@ -1,9 +1,9 @@
 ---
 title: "Introduction"
-teaching: 0
+teaching: 20
 exercises: 0
 questions:
-- "Key question (FIXME)"
+- "Why do we search for dark matter at the LHC?"
 objectives:
 - "First learning objective. (FIXME)"
 keypoints:
