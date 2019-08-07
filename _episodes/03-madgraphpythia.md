@@ -209,7 +209,15 @@ Now, don't worry about having to write this down or anything, it will automatica
 directory, along with other useful information pertaining to this run.  Once this has finished running
 take a look at that file if you unfamiliar with its contents.
 
-Also produced by this stage of the simulation is a file called
+Also produced by this stage of the simulation is a file called and LHE ([Les Houches Event](https://arxiv.org/pdf/hep-ph/0609017.pdf))
+file.  If you look at `MG5_aMC_v2_6_6/PROC_DMsimp_s_spin1_0/Events/run_0/unweighted_events_01.lhe` you will see an XML-formatted
+file that contains the four vectors of the Feynman diagrams of the matrix element for each event.  MadGraph takes care of
+the internal aspects of this information and you may have to read a bit about LHE files to get a hang of how to parse precisely
+what is shown.  However, the main takeway from this is that what is saved here are the outgoing particles, at **parton level**,
+before any sort of parton shower or hadronization.  You can already gleem quite a bit of information concerning the kinematics
+and signatures of your sample by inspecting this file and perhaps even making some distributions of things like the 
+vector sum of the transverse momentum of the dark matter particles.  Eventually, it is this which will be reconstructed as 
+**missing transverse momentum** in the detector.
 
 ~~~
 INFO: Update the dependent parameter of the param_card.dat
@@ -292,10 +300,46 @@ reweight -from_cards
 decay_events -from_cards
 ~~~
 
+> ## Make Some Plots
+>
+> If you fancy yourself a good coder, try to write a short python script that parses this output LHE
+> file and uses [matplotlib](https://matplotlib.org/) to make a histogram of the vector sum of the 
+> transverse momentum of the two dark matter particles.  You can tell which two particles are the DM
+> based on their [PdgID](http://pdg.lbl.gov/2007/reviews/montecarlorpp.pdf) values.  Now try to make
+> a histogram of the invariant mass of these two particles.  
+>
+> After doing this, think about the following question :
+> - How are the distributions of these two variables correlated with the parameters of the model? (Recall : The parameters of the model are stored within the `param_card.dat`)
+> - Which of these two variables can we actually reconstruct in an experiment? 
+>
+{: .challenge}
+
 ### Parton Shower Output - Pythia
 
 The next stage of simulation (even though it is running "in one go" in this tutorial)
-is Pythia.  What is happening here is that the output LHE file
+is Pythia.  What is happening here is that the information of the outgoing partons, stored in the output LHE file from
+MadGraph, is being passed to a parton shower Monte Carlo generator.  A number of possible generators of this
+type are available (i.e. [Pythia](), [Sherpa](), [Herwig]()) but we have decided to use Pythia as it is
+one of the most common ones used at the LHC.  It is also possible to run Pythia as a standalone program
+and there are extensive tutorials on the Pythia webpage itself, but that is out of the direct scope of this tutorial.
+Luckily, it interfaces nicely to MadGraph and you can simply use it.
+
+But what is it doing? Well, the LHE file contains raw partons, and we know that these particles are colored objects
+and due to confinement of QCD, such particles are not stable.  Therefore, when they are produced, they undergo a 
+two step process that will result in an ensemble of hadrons.  The first is a series of "parton Bremstrahlungs", also
+referred to as splittings, in which a quark emits a gluon or a gluon splits to two quarks in a shower-like process.  The physics
+that governs this process is that of QCD, but in the limit of small angles and low energy emissions, also referred to
+as Soft and Collinear Effective Theory (SCET).  With each splitting, the available energy gets diluted.  This process continues until the energy of the set of partons is low enough that they begin to bind together to form stable hadrons.  The process
+by which this binding occurs is not understood from first principle but rather follows an empirical model with a 
+number of parameters which themselves are tuned to reproduce certain measurements at hadron colliders ([like this NTrack measurement from ATLAS]()).  It is possible, however, to change the values of these parmeters yourself and they are stored in the `pythia_card.dat` file ... which you should not have seen (but not changed!) before.
+
+The output of this stage of generation will be a [HEPMC]() file which can be found at `MG5_aMC_v2_6_6/PROC_DMsimp_s_spin1_0/Events/run_0/FXME.hepmc`.  This contains similar information to the LHE file, in that
+it comes in a standard format and refers to the four momenta of all the outgoing particles from the generation.  However, if you look
+at this file manually, it will appear much denser and challenging to read.  Part of the reason is because unlike looking at the
+partons from the matrix element process in MadGraph, dozens of outgoing hadrons have been formed so there is a lot of information. 
+A number of tools (e.g. [HEPMCVisualizer]()) have been formed to visualize and analyze the information here, including some that can be
+installed and used within MadGraph (e.g. [MadAnalysis]()) but using them is out of the scope of this tutorial.  Instead we will
+by using the [Rivet]() tool/library which expects as input a `.HEPMC` file ... and you now have one for your Z' process!
 
 ~~~
 reweight -from_cards
