@@ -38,11 +38,12 @@ in a universe where both background and signal processes exist ("S+B").
 FIG : one spectrum
 
 To do this, we need get a bulk sense of what background only experimental results "usually" look like
-as opposed to signal+background results "usually" look like.  Now let's pretend(*) we have divine control over the
+as opposed to signal+background results "usually" look like.  Now let's pretend(\*) we have divine control over the
 universe in addition to a lot of money and can perform a run of the LHC over and over again after flipping
 some super powerful switch to toggle whether the LHC collisions you produce are B or S+B.  This would allow
 you to repeat the same experiment (i.e. ATLAS/CMS/LHCb Run 2 140ifb dataset) many times and build an intuition
-about what that set of observations would look like in the two scenarios.
+about what that set of observations would look like in the two scenarios.  We call each of these
+repetitions of the experiment a **pseudo-experiment**.
 
 FIG (top): Series of B-only repeats
 
@@ -110,6 +111,80 @@ FIG : distributions with the real data test statistic on top and posing question
 >
 {: .callout}
 
+(*) We are only going to "pretend" of course because if we had divine control, we would probably
+also know whether our data has signal in it in this universe, but bear with me.
+
+
+## Discovery
+
+To work towards understanding how we can use this likelihood to make a meaningful statement, let's
+start with **discovery**.  Although this is not the case that we will eventually be interested
+in understanding for CONTUR, we can begin to get a sense of the core concept of a p-value and a
+confidence level (CL).
+
+Here, we will use the distribution of the B-only likelihood to benchmark how compatible our data
+were with it.  It peaks at low values and so if we evaluate the test statistic for our single dataset
+and it takes on a large value, then perhaps we feel a bit suspicious.  However, you should
+diligently recognize that there is a long tail in the distribution of the B-only likelihood
+so there are some cases (because of statistical fluctuation) that we toggled our divine switch to a
+B-only universe, but it generated an anomalously high value for our test statistic.  So instead,
+let's quantify how "strange" this one experiment is by evaluating the fraction of pseudo-experiments
+in our toy generation that had a resulting test statistic that was larger than the experiment in question.
+
+FIG : p-value one sided
+
+This value, the fraction of "more discrepant pseudo-experiments" is what we refer to as the **p-value**
+for the one experiment in question.  The lower it is, the more suspicious we become.  And if
+it is so friggin' small that it feels "impossible that a B-only experiment could have produced
+an experimental outcome that looks like that", then it means we have a discovery.  The real statement
+we are making at this point actually only pertains to the consistency of the data with the B-only hypothesis
+and doesn't necessarily mean that we have discovered a new particle, but could instead mean that
+our background estimate is rubbish.
+
+This p-value is also referred to as the **Confidence Level (CL)** for the interval defined from the value
+of the test statistic calculated for the data and infinity.  And because it is calculated with respect to the
+B-only hypothesis is appropriately called "CL(b)".
+
+> ## 5 Sigma
+>
+>
+>
+>
+{: .callout}
+
+
+
+## Exclusion Limits
+
+Now that we have the notion of a CL value (or a p-value) for an interval, let's set a limit.  If we are
+setting limits, then it means to a large extent that we have already evaluated CL(b) and found it to be
+unexciting.  Therefore, we know that the test statistic for the data lies somewhere near the bulk
+of the B-only likelihood.  And now, since we want to make a statement about the interesting physics
+parameter of the signal strength, then we are going to begin by leveraging the S+B likelihood, and
+study its behavior with respect to the value of the test statistic calculated for the single real
+experiment.  In particular, we are going to calculate the value of CL(s+b) which is the p-value
+of the one-sided confidence interval that tells us "How much does the data actually look like it
+was produced from the S+B hypothesis?".
+
+FIG : likelihoods with the data shown and one CLS+B
+
+Now, the example above is only considering one specific choice of the amount of signal that we are
+testing, it is only one specific signal strength.  Moreover, it is only one specific choice for
+the entire ensemble of interesting physical input parameters in our model (e.g. particle masses and
+couplings).  Therefore, to determine what **region of parameter space** is excluded for this set of parameters, we can fix
+them and create multiple S+B likelihood spectra for an ensemble of signal strengths {s0, s1, s2, ... sn}.  Yep,
+this means we will actually no longer be using our divine _switch_ but rather our _divine throttle_ and for each
+individual setting, we will be recreating the LHC dataset and ATLAS/CMS/LHCb experiments many times to generate
+the distribution of CL(s+b) values for that particular choice of s.
+For each of these, we can calculate the value of CL(s+b).  Since the data has already been determined to look
+quite like the background (i.e. it has a rather large CL(b) value) then we can examine the CL(s+b) value
+and if for some value of si, if CL(s+b) is smaller than some pre-established value then we conclude that "it
+is obviously not possible that a signal with that cross section exists" and we **exclude** that signal strength
+... and also all cross sections larger than it.
+
+FIG : likelihoods with decreasing CL(s+b) values
+
+
 > ## The Asymptotic Approximation
 >
 >
@@ -117,20 +192,15 @@ FIG : distributions with the real data test statistic on top and posing question
 >
 {: .callout}
 
-(*) We are only going to "pretend" of course because if we had divine control, we would probably
-also know whether our data has signal in it in this universe, but bear with me.
+From here there is only one final step to arrive at what is "actually" done at the LHC.  Throughout
+this entire procedure, we have discussed only the CL(b) and CL(s+b) p-values.  However, at the LHC
+a slightly different definition of a confidence level is used; the **CL(s) value**.  This is defined
+as the _relative_ confidence level of the S+B hypothesis to the B-only hypothesis.  So, in reality
+for each of the signal strengths {s0, s1, s2, ... sn}, we calculate the CL(s) value and when this drops below
+a certain value, then we conclude that that signal strength (and all those above) are excluded.  The value
+that we typically choose for this threshold is 2-sigma (which is a Z-value) and translates to 0.05 (which is a p-value).
 
-
-## Discovery
-
-
-
-
-
-## Exclusion
-
-
-
+EQUATION of CLS and the combined plot.
 
 > ## Origins of CLs
 >
@@ -139,5 +209,54 @@ also know whether our data has signal in it in this universe, but bear with me.
 >
 {: .callout}
 
+> ## Expected Limits
+>
+>
+>
+>
+>
+{: .callout}
+
 
 ## Mapping out the Space : "Contouring"
+
+Going from the output of the "profile likelihood fit with CL(s) test statistic" machinery
+covered above to a fancy exclusion contour that is the "interesting" physics output
+of the search is rather straightforward from here, although the amount of computation
+may be rather large.  Essentially, we simply have to determine the region of parameter
+space in the model that we are interested in exploring, and to which we believe we may
+be sensitive to.  We then generate a set of signal samples for an array of points in this parameter
+space.  This is typically done in one of a few ways ""
+
+- Generating : Rerunning MadGraph+Pythia for each unique set of parameter choices.  This is the brute force manner and most straight forward.
+- Morphing : Running MadGraph+Pythia for a few choices of parameter settings and then *interpolating* between these points by parameterizing the signal and then tuning the empirical parameters.
+- Reweighting : Similar to morphing, you can generate a few representative points and then determine a set of event-by-event weights that perform and effective interpolation between those points.
+
+This will result in what is commonly referred to as a "signal grid".  For each of the points in this grid,
+you can then perform the procedure outlined above which produces the cross section (_for that point_) which
+is disallowed based on the observed data from the _actual_ running of the LHC (as opposed to your
+divinely inspired pseudo-experiments). Finally, you compare the value of the cross section which is excluded to
+the theoretically predicted cross section that MadGraph (or some method) tells you the theory would
+generate if it exists.  If this predicted cross section is greater than the level of excluded cross
+section then you can rule out that point in parameter space.  The final step is to examine your
+signal grid and find the boundary that separates the points that were excluded from those which
+you "failed to exclude".
+
+FIG : signal grid, excluded points, contour over excluded points
+
+And voila! There is our contour! Now let's venture on and see how we can use CONTUR to produce a contour.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
