@@ -293,6 +293,33 @@ hand wavy aspects in a search.
 
 ## The Magic of Likelihoods
 
+The final step of our search process is to take the information that we have measured and refined
+in the entire process previously described and connect these observation to meaningful
+parameters in the model of interest, which for us is a BSM model of DM.  This connection is made
+through the use of **inferential statistics** and the use of **likelihoods**, which are
+probability distribution functions that act as tools to distill the information coming
+from our observations into a more manageable/"simpler" form and connect it to the parameters
+in our model.  More often than not, the parameter that we choose to use as the main connection point
+when performing searches is the cross section, as this is very intuitively related to the event yield
+and simplifies the overall procedure.  The use of likelihoods will allow us to investigate
+what values of cross section are absurd (i.e. "excluded") and which values of the cross section
+could still possibly be valid given the data.  Once this is in hand, further translations can be made
+into the parameter space of the model by mapping out the set of points that are invalid
+in terms of the cross section is produced under a specific assumption of couplings (or other parmeters).
+Once this set of points is found, we can eventually produce an exclusion "contour" (there we go, now
+we get a sense of where we are heading with CONTUR ... which is spelled slightly different because
+its an acronym.)
+
+FIG : Workflow
+- Data spectra
+- likelihood equation and distribution
+- connect to allowed point
+- mapping out of excluded region
+
+The next section is an intermezzo in statistics, and conceptual in nature, like this page.  It will
+not be comprehensive, but does summarize "what is done at the LHC".
+
+
 
 {% include links.md %}
 
