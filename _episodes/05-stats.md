@@ -5,9 +5,9 @@ exercises: 0
 questions:
 - "How do we make meaningful and robust statements "
 - "What is "the profile likelihood fit with CLs test statistic"?"
-- "How do we draw an exclusion boundary?""
+- "How do we draw an exclusion boundary?"
 objectives:
-- "Review the basic concept of statistical likelhoods.""
+- "Review the basic concept of statistical likelhoods."
 - "Appreciate the power of 'toy monte carlo'."
 - "Understand how limits are derived after making an observation of an event yield."
 keypoints:
