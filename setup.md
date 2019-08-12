@@ -91,8 +91,8 @@ then **be sure to install and familiarize yourself with Docker**.
 > Please take 2 hours to work through the basics here.  Then confirm that you appreciate what the following commands do
 >
 > ~~~bash
-> docker pull smeehan12/dmatlhc2019-tutorial:v0
-> docker run --rm -it -v $PWD:/contur/local smeehan12/dmatlhc2019-tutorial:v0 bash
+> docker pull smeehan12/dmatlhc2019-tutorial
+> docker run --rm -it -v $PWD:/contur/local smeehan12/dmatlhc2019-tutorial bash
 > ~~~
 >
 > It would be a good idea to spend some time thinking about this since you will need to be using both of
