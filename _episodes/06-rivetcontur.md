@@ -15,14 +15,25 @@ keypoints:
 - "We can infer things about parameters in a model by using the CLs test statistic."
 ---
 
+Now that we have a conceptual understanding of how we can go from a measurement to a meaningful
+physics statement by using the power of likelihoods, let's contextualize this with the CONTUR tool.
+CONTUR ([https://contur.hepforge.org/](https://contur.hepforge.org/), [1606.05296](https://arxiv.org/abs/1606.05296)) stands for **C**onstraints **O**n **N**ew **T**heories **U**sing **R**ivet
+and aims at making as broad use of the wealth of measurements from the LHC, and really any other collider
+experiment for that matter, by using the Rivet ([https://rivet.hepforge.org/](https://rivet.hepforge.org/))
+analysis preservation paradigm.  In its current incarnation, doing so requires that certain approximations
+are made which limit its power as compared to dedicated searches and it is further limited to only
+those final states that are available as preserved [Rivet routines](https://rivet.hepforge.org/analyses/).  However,
+as you will (hopefully) see, even with these limitation it can serve to be incredibly powerful in providing
+broad constraints and help guide us to see which
 
 ## Truth Analysis
 
-### Unfolded Spectra
+## Unfolded Spectra
 
 ## Running Rivet
 
-## Contur
+## Running Contur
+
 
 
 {% include links.md %}
