@@ -26,7 +26,8 @@ can be either an effective field theory (left) or a complete theory (right), but
 what we are focusing on at the LHC is that we can collide SM particles, and what comes out
 is DM particles.
 
-EFT and UC complete Z' diagram
+![](../fig/eft.png)
+![](../fig/zprime.png)
 
 The tricky part here, is that we already know that DM particles (assuming they are particles)
 interact very weakly with ordinary matter, or we would have already seen them.  As such,
@@ -52,7 +53,9 @@ particles (or more accurately their decay products) enter the detector, they lea
 "signature" in the ensemble of detector subsystems.  This signature allows us to make a positive
 decision to trigger on an event and record the data for offline analysis.
 
-FIG : Z' diagram left and mono-H tt+MET diagrams
+![](../fig/zprime.png)
+![](../fig/monoh.png)
+
 
 However, we are still left with problem [2], we cannot examine the properties of the DM particles
 produced because they are invisible.  For this, we can rely on basic conservation of momentum
@@ -115,7 +118,7 @@ understand the concept of a "physics object" which relates a short distance degr
 to an experimental observable in the set of detector subsystems.  Once this abstraction is made,
 the terms are often used interchangeably.
 
-FIG : DIAGRAM OF CMS OR ATLAS PHYSICS OBJECTS
+![](../fig/objects.jpeg)
 
 ### Leptons (electrons and muons)
 
@@ -154,7 +157,7 @@ there is a blurry line between what we mean when we say "a quark", but experimen
 neutral hadrons will show up as energetic showers ("clusters") in the ECal and HCal, and the charged hadrons will show up
 both as tracks in the ID as well as clusters in the calorimeters.  Each of these individual clusters or tracks can be treated
 as an independent pseudo-particle and they can be grouped using any of of a number of "nearest-neighbor"-esque algorithms,
-the most popular at the LHC being the [anti-kT algorithm]() into exclusive sets of particles.  We then make the qualitative
+the most popular at the LHC being the [anti-kT algorithm](http://arxiv.org/abs/0802.1189) into exclusive sets of particles.  We then make the qualitative
 association that one of these groups of particles "probably" came from a quark/gluon that was emitted from the matrix
 element.
 
@@ -213,7 +216,7 @@ will get recorded.  In fact, only a small fraction (~20%) will get recorded.  Th
 trigger algorithm and means that we can only probe the monojet phase space starting at 250 GeV of MET.  This is crazy!
 And if its not crazy to you, ask someone about it!
 
-FIG : INSERT MET TRIGGER TURN ON HERE
+![](../fig/2018May_Efficiency_Zmumu.png)
 
 ## Signal Region Selection
 
@@ -233,8 +236,6 @@ and there is no one "best" way to go about determining what selection criteria y
 a common and simple quantitative metric that can be used is to compare the number of expected signal events (S)
 to the expected uncertainty on the number of expected background events (root(B)).  If you can apply
 a selection criteria or an event veto and cause this number to increase, you have done something good.
-
-FIG : 2D signal and background comparison
 
 ## Backgrounds (Damn it!)
 

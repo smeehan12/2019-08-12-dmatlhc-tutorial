@@ -215,8 +215,8 @@ file that contains the four vectors of the Feynman diagrams of the matrix elemen
 the internal aspects of this information and you may have to read a bit about LHE files to get a hang of how to parse precisely
 what is shown.  However, the main takeway from this is that what is saved here are the outgoing particles, at **parton level**,
 before any sort of parton shower or hadronization.  You can already gleem quite a bit of information concerning the kinematics
-and signatures of your sample by inspecting this file and perhaps even making some distributions of things like the 
-vector sum of the transverse momentum of the dark matter particles.  Eventually, it is this which will be reconstructed as 
+and signatures of your sample by inspecting this file and perhaps even making some distributions of things like the
+vector sum of the transverse momentum of the dark matter particles.  Eventually, it is this which will be reconstructed as
 **missing transverse momentum** in the detector.
 
 ~~~
@@ -303,14 +303,14 @@ decay_events -from_cards
 > ## Make Some Plots
 >
 > If you fancy yourself a good coder, try to write a short python script that parses this output LHE
-> file and uses [matplotlib](https://matplotlib.org/) to make a histogram of the vector sum of the 
+> file and uses [matplotlib](https://matplotlib.org/) to make a histogram of the vector sum of the
 > transverse momentum of the two dark matter particles.  You can tell which two particles are the DM
 > based on their [PdgID](http://pdg.lbl.gov/2007/reviews/montecarlorpp.pdf) values.  Now try to make
-> a histogram of the invariant mass of these two particles.  
+> a histogram of the invariant mass of these two particles.
 >
 > After doing this, think about the following question :
 > - How are the distributions of these two variables correlated with the parameters of the model? (Recall : The parameters of the model are stored within the `param_card.dat`)
-> - Which of these two variables can we actually reconstruct in an experiment? 
+> - Which of these two variables can we actually reconstruct in an experiment?
 >
 {: .challenge}
 
@@ -319,26 +319,26 @@ decay_events -from_cards
 The next stage of simulation (even though it is running "in one go" in this tutorial)
 is Pythia.  What is happening here is that the information of the outgoing partons, stored in the output LHE file from
 MadGraph, is being passed to a parton shower Monte Carlo generator.  A number of possible generators of this
-type are available (i.e. [Pythia](), [Sherpa](), [Herwig]()) but we have decided to use Pythia as it is
+type are available (i.e. [Pythia](http://home.thep.lu.se/~torbjorn/pythia81html/Welcome.html), [Sherpa](https://sherpa.hepforge.org/), [Herwig](https://herwig.hepforge.org/)) but we have decided to use Pythia as it is
 one of the most common ones used at the LHC.  It is also possible to run Pythia as a standalone program
 and there are extensive tutorials on the Pythia webpage itself, but that is out of the direct scope of this tutorial.
 Luckily, it interfaces nicely to MadGraph and you can simply use it.
 
 But what is it doing? Well, the LHE file contains raw partons, and we know that these particles are colored objects
-and due to confinement of QCD, such particles are not stable.  Therefore, when they are produced, they undergo a 
+and due to confinement of QCD, such particles are not stable.  Therefore, when they are produced, they undergo a
 two step process that will result in an ensemble of hadrons.  The first is a series of "parton Bremstrahlungs", also
 referred to as splittings, in which a quark emits a gluon or a gluon splits to two quarks in a shower-like process.  The physics
 that governs this process is that of QCD, but in the limit of small angles and low energy emissions, also referred to
 as Soft and Collinear Effective Theory (SCET).  With each splitting, the available energy gets diluted.  This process continues until the energy of the set of partons is low enough that they begin to bind together to form stable hadrons.  The process
-by which this binding occurs is not understood from first principle but rather follows an empirical model with a 
-number of parameters which themselves are tuned to reproduce certain measurements at hadron colliders ([like this NTrack measurement from ATLAS]()).  It is possible, however, to change the values of these parmeters yourself and they are stored in the `pythia_card.dat` file ... which you should not have seen (but not changed!) before.
+by which this binding occurs is not understood from first principle but rather follows an empirical model with a
+number of parameters which themselves are tuned to reproduce certain measurements at hadron colliders, such as the number of charged particles produced in an event.  It is possible, however, to change the values of these parmeters yourself and they are stored in the `pythia_card.dat` file ... which you should not have seen (but not changed!) before.
 
-The output of this stage of generation will be a [HEPMC]() file which can be found at `MG5_aMC_v2_6_6/PROC_DMsimp_s_spin1_0/Events/run_0/FXME.hepmc`.  This contains similar information to the LHE file, in that
+The output of this stage of generation will be a [HEPMC](http://hepmc.web.cern.ch/hepmc/) file which can be found at `MG5_aMC_v2_6_6/PROC_DMsimp_s_spin1_0/Events/run_0/FXME.hepmc`.  This contains similar information to the LHE file, in that
 it comes in a standard format and refers to the four momenta of all the outgoing particles from the generation.  However, if you look
 at this file manually, it will appear much denser and challenging to read.  Part of the reason is because unlike looking at the
-partons from the matrix element process in MadGraph, dozens of outgoing hadrons have been formed so there is a lot of information. 
-A number of tools (e.g. [HEPMCVisualizer]()) have been formed to visualize and analyze the information here, including some that can be
-installed and used within MadGraph (e.g. [MadAnalysis]()) but using them is out of the scope of this tutorial.  Instead we will
+partons from the matrix element process in MadGraph, dozens of outgoing hadrons have been formed so there is a lot of information.
+A number of tools (e.g. [HepMCVisual](https://iopscience.iop.org/article/10.1088/1742-6596/219/4/042032)) have been formed to visualize and analyze the information here, including some that can be
+installed and used within MadGraph (e.g. [MadAnalysis](https://madanalysis.irmp.ucl.ac.be/)) but using them is out of the scope of this tutorial.  Instead we will
 by using the [Rivet]() tool/library which expects as input a `.HEPMC` file ... and you now have one for your Z' process!
 
 ~~~
@@ -368,11 +368,46 @@ INFO:
 more information in /contur/MG5_aMC_v2_6_6/PROC_DMsimp_s_spin1_0/index.html
 ~~~
 
-## Changing Model Parameters
-Describe the param card and have them change the mediator mass
+## Generating More Runs
 
-## Changing Running Parameters
-Describe the run card and have them change the input particle type
+Now that you have generated an ensemble of events, you can proceed to study them with contour (next page).
+However, you will invariably be wanting to investigate the various settings in this model to see how
+it behaves without the "factory default" settings.  To do that, there are three important pieces to consider.
+
+**[1] Collision Characteristics** (`run_card.dat`) :
+
+When you initially generated a process, you specified
+the input and outgoing particles.  However, there are a number of other parameters that are important to
+consider (i.e. center of mass energy PDF choice) that must be specified.  And some of them can change the
+outcome of the run.  You may want to investigate them, and to do so, you should change the `Cards/run_card.dat`.
+
+**[2] Model Parameters** (`param_card.dat`) :
+
+What if you want to probe a different point in the parameter
+space of your model.  For instance, what if you want to change the value of the couplings or the masses of
+the particles?  Well, to do this, you will need to modify the `Cards/run_card.dat` file, browsing through to
+find the precise line that is associated to the parameter of interest.
+
+Often times you will want to test a series of values for a single parameter in your model, and in this case
+there is a nice syntax that can be specified here.  In place of the single number which would be the one value of
+the parameter that is tested, you write `scan:[100,200,300]` then for the parameter of interest, MadGraph
+will automagically generate one run per parameter in this list.
+
+**[3] Generation Executable** :
+
+It would be fatiguing to have to type this `launch` command every time and
+manually press enter through the options.  Not to mention that this is not a very "automated" way to do things.
+However, within the `PROC_XXX` directory that you output, there is an executable called `./bin/generate_events`
+which does precisely what it says; it generates events.  You can use the `--help` option to get a sense of
+how to use it.  However, the main thing to bear in mind is that once you start it, you don't have the
+ability to modify how MadGraph+Pythia will run "mid execution".  Therefore, you must have your `param_card.dat`
+and `run_card.dat` configured before hand.  Once executing it, the events will be generated and a new `./Events/run_XY`
+directory will be generated, like it was in your first run.
+
+At the end of the day, you may end up with a whole lot of `run_XY` directories and you may hesitate and be confused
+about how to keep them all straight.  Luckily, within each directory, the `run_XY_tag_1_banner.txt` file
+stores the provenance of all the run information for you to parse after the fact.
+
 
 
 {% include links.md %}

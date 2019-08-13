@@ -4,14 +4,14 @@ teaching: 20
 exercises: 0
 questions:
 - "How do we make meaningful and robust statements "
-- "What is "the profile likelihood fit with CLs test statistic"?"
+- "What is 'the profile likelihood fit with CLs test statistic'?"
 - "How do we draw an exclusion boundary?"
 objectives:
 - "Review the basic concept of statistical likelhoods."
 - "Appreciate the power of 'toy monte carlo'."
 - "Understand how limits are derived after making an observation of an event yield."
 keypoints:
-- "Likelihoods connect observations with parameters by giving us a sense of "how likely a particular dataset was given a set of parameters"."
+- "Likelihoods connect observations with parameters by giving us a sense of 'how likely a particular dataset was given a set of parameters'."
 ---
 
 **DISCLAIMER** : The use of statistics in HEP is pervasive and always constitutes the final

@@ -4,13 +4,14 @@ teaching: 10
 exercises: 0
 questions:
 - "What do we actually know about DM?"
--
+- "What are the main ways we investigate the particle nature of DM?"
 objectives:
 - "Understand where we at the LHC fit into the broader DM context."
-- "Get an introduction to the LHC-DMWG."
+- "Get an introduction to the LHC Dark Matter Working Group."
 keypoints:
-- "All we know about DM is that it interacts gravitionally ... therefore "matter"."
-- ""
+- "All we know about DM is that it interacts gravitionally ... therefore 'matter'."
+- "DM does not seem to interact with anything else, particularly light ... therefore 'dark'."
+- "DM is **not necessarily** a particle, but we work under this assumption much of time time."
 ---
 
 More than a quarter of the energy density of our Universe consists of Dark Matter (DM).
@@ -24,7 +25,7 @@ from only visible matter.
 
 > ## Go Read for Yourself
 >
-> This introduction is far too brief but one of the most comprehensive reviews is from 2004 - [hep-ph/0404175](hep-ph/0404175).
+> This introduction is far too brief but one of the most comprehensive reviews is from 2004 - [hep-ph/0404175](https://arxiv.org/abs/hep-ph/0404175).
 > The fact that it is from 2004 and still is entirely relevant 15 years later gives you a strong sense of where our
 > understanding as a community is concerning DM.  Although we are probing more broadly and deeper
 > with all experiments, the fundamentals remain unchanged.
@@ -45,17 +46,17 @@ There are three main ways to detect possible DM interactions with SM particles.
 
 - **[1] - Direct Detection** : DM can scatter off of SM particles. We expect to see these scattering
 processes "directly" when they recoil from samples of material that are placedin very controlled, low-background
-environments.  Experiments such as these are [LUX]() or [XENON]().
+environments.  Experiments such as these are [LUX](http://luxdarkmatter.org/) or [Xenon-1T](http://www.xenon1t.org/).
 - **[2] - Indirect Detection** : In environments like the center of the galaxy, where the density of DM is high,
 DM particles can annihilate to SM particles. Astrophysical observations could detect the SM particles
 (e.g. photons or positrons) produced by DM. This is called "indirect detection" because we only observe
-the final products and not the DM itself. Two very well-known indirect detection experiments are the [Fermi
-telescope]() and [AMS]().
+the final products and not the DM itself. Two very well-known indirect detection experiments are [Fermi
+LAT](https://glast.sites.stanford.edu/) and [AMS](http://ams.cern.ch/).
 - **[3] - Production/Collider** : The final means by which we probe DM is through its production at colliders.
 If you have already accepted [1] then you should be comfortable enough to simply reverse the process
 and cross your fingers that when we collide SM particles, some amount of the time we will "produce" DM,
 hence the nomenclature "production".
-At the moment, the biggest players in the game at the LHC are [ATLAS]() and [CMS](), but B-factories
+At the moment, the biggest players in the game at the LHC are [ATLAS](http://atlasexperiment.org/) and [CMS](https://home.cern/science/experiments/cms), but B-factories
 like [Belle-II]() will provide very complementary perspectives.
 
 ![](../fig/DMdetection.png)
@@ -91,10 +92,10 @@ in this tutorial. (Don't worry, much more on how one of these is done will come 
 
 In this tutorial, we will be presenting a very biased perspective, focusing on the "Production/Collider"
 side of things, particularly that of the LHC.  To give you some of the history of how we view this at the
-LHC, there is a dedicated working group called the [LHC-Dark Matter Working Group]() that provides a context
+LHC, there is a dedicated working group called the [LHC-Dark Matter Working Group](https://lpcc.web.cern.ch/content/lhc-dm-wg-wg-dark-matter-searches-lhc) that provides a context
 to ensure broad coverage of both theorists and experimentalists interested in this topic.  If you are not
 on the mailing list, feel free to join!  And it is thanks to this group which organized a comprehensive
-study during the first long shutdown of the LHC ([LINK TO REF]()) that aimed to standardize the models
+study during the first long shutdown of the LHC ([1507.00966](http://arxiv.org/abs/1507.00966)) that aimed to standardize the models
 that are probed.  This helped to simplify the discussions and ensure that we were all talking
 the same language, which is that of "simplified models".  These are models which we admit are
 probably too simple for nature to realize "in reality", but give us a concrete forum by which to
@@ -106,12 +107,14 @@ After becoming comfortable with this, the same group set about to solidify more 
 _how_ these results can and _should_ be presented.  The reasoning here is that since there are three
 broad communities of physicists probing DM, and the probes at the LHC are some of the most model
 specific, how can we present our results with a clean conscience.  This resulted in a very nice
-work ([LINK TO REF]()) that clarifies the relevance of things like "How seriously should I take
-that 'relic abundance' exclusion?".
+work ([1603.04156](https://arxiv.org/abs/1603.04156)) that clarifies the relevance of things like "How seriously should I take
+that 'relic abundance' exclusion?".  At the same time, a considerable effort was sunk into improving
+our understanding of the dominant SM backgrounds to these searches as well as the associated
+uncertainties on these backgrounds, resulting in precision recommendations for V+jets predictions ([1705.04664](https://arxiv.org/abs/1705.04664)).
 
 However, with a lack of clear evidence for a positive signal of DM at the LHC from the beginning
 of Run 2, the next step was to understand if this is because we weren't "looking in the right places".
-This lead us from the simple (axial-)vector-mediator model to the "2HDM+a model" ([LINK TO REF]())
+This lead us from the simple (axial-)vector-mediator model to the "2HDM+a model" ([1810.09420](https://arxiv.org/abs/1810.09420))
 which introduces a few new particles and couplings and therefore opens up the possibility for
 more exotic signatures.  Perhaps the ability to produce DM via SM couplings is being muddied by
 looking at signal regions that are too "inclusive", perhaps we must focus on a specific corner of phase
@@ -120,7 +123,7 @@ space to see the signal pop up.
 Finally, and most recently, this group has begun to focus on what are called "t-channel models"
 in which there is no resonant s-channel degree of freedom as before, but there are couplings that
 cause for transitions from SM to DM via a mediator emission.  This is ongoing work within the
-group ([LINK TO REF]()) and with the tools that you learn in this workshop, you will already be in a place to
+group and with the tools that you learn in this workshop, you will already be in a place to
 contribute! COOL!
 
 
