@@ -19,7 +19,7 @@ keypoints:
 ## Starting Up
 Start by pulling and booting up the docker image that contains everything you need for this tutorial
 ~~~bash
-docker pull smeehan12/dmatlhc2019-tutorial:v0 bash
+docker pull smeehan12/dmatlhc2019-tutorial:v0
 docker run --rm -it -v $PWD:/contur/local smeehan12/dmatlhc2019-tutorial:v0 bash
 ~~~
 Note that in this second command, there are a few optional arguments `--rm -it -v $PWD:/contur/local`
